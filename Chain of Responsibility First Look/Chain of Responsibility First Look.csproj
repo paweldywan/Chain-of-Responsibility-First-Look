@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C39A45D-C2E0-4A0C-988A-D4395540CC05}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Chain_of_Responsibility_First_Look</RootNamespace>
+    <AssemblyName>Chain of Responsibility First Look</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Exceptions\InsufficientPaymentException.cs" />
+    <Compile Include="Business\Exceptions\UserValidationException.cs" />
+    <Compile Include="Business\Handlers\PaymentHandlers\CreditCardHandler.cs" />
+    <Compile Include="Business\Handlers\Handler.cs" />
+    <Compile Include="Business\Handlers\PaymentHandler.cs" />
+    <Compile Include="Business\Handlers\PaymentHandlers\InvoiceHandler.cs" />
+    <Compile Include="Business\Handlers\PaymentHandlers\PaypalHandler.cs" />
+    <Compile Include="Business\Handlers\UserValidation\AgeValidationHandler.cs" />
+    <Compile Include="Business\Handlers\UserValidation\CitizenshipRegionValidationHandler.cs" />
+    <Compile Include="Business\Handlers\UserValidation\NameValidationHandler.cs" />
+    <Compile Include="Business\Handlers\UserValidation\SocialSecurityNumberValidatorHandler.cs" />
+    <Compile Include="Business\Models\Item.cs" />
+    <Compile Include="Business\Models\Order.cs" />
+    <Compile Include="Business\Models\Payment.cs" />
+    <Compile Include="Business\Models\PaymentProvider.cs" />
+    <Compile Include="Business\Models\ShippingStatus.cs" />
+    <Compile Include="Business\PaymentProcessors\CreditCardPaymentProcessor.cs" />
+    <Compile Include="Business\PaymentProcessors\InvoicePaymentProcessor.cs" />
+    <Compile Include="Business\PaymentProcessors\IPaymentProcessor.cs" />
+    <Compile Include="Business\PaymentProcessors\PaypalPaymentProcessor.cs" />
+    <Compile Include="Business\Validators\SocialSecurityNumberValidator.cs" />
+    <Compile Include="Business\Models\User.cs" />
+    <Compile Include="Business\UserProcessor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
